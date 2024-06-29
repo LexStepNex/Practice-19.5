@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <string>
 
 bool substr(std::string str, std::string subStr) {
   int strLen = str.length();
@@ -39,4 +40,5 @@ int main() {
             << " times\n";
   std::cout << "Your word is a subword in the text " << countSubWord
             << " times\n";
+  notebook.close();
 }
