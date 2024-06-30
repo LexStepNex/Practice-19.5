@@ -5,8 +5,8 @@ int main() {
   std::cout << "Open you text file\n";
 
   std::ifstream notebook;
-  std::string link;
   do {
+    std::string link;
     std::cout << "Input link on you file.txt\n";
     std::cin >> link;
 
