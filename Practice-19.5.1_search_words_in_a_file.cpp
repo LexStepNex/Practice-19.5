@@ -22,7 +22,7 @@ bool substr(std::string str, std::string subStr) {
 int main() {
   std::cout << "Find you word in text\n";
   std::ifstream notebook; 
-  notebook.open("C:\\develop\\practice\\practice-19.5\\words.txt");//открываем файл txt
+  notebook.open("words.txt");//открываем файл txt
 
   std::string word, searchWord;
   std::cout << "Input search word: ";

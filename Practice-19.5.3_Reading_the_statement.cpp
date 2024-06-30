@@ -81,7 +81,7 @@ std::string outputAlignment(std::string str) {
 int main() {
   std::cout << "Pay statement\n";
   std::ifstream notebook;
-  notebook.open("C:\\develop\\practice\\practice-19.5\\Statement.txt");
+  notebook.open("Statement.txt");
 
   std::string name, surname, date, moneyStr, maxNameSurname;
   int money, maxMoney = -1, sum = 0;
