@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-int question_int[13] = {0,   44,  99,  142, 167, 183, 216,
-                        255, 296, 341, 390, 445, 499};
-int answer_int[13] = {0, 4, 12, 19, 24, 29, 37, 46, 51, 56, 64, 71, 77};
+int question_int[13] = {0,   44,  99,  142, 167, 182, 215,
+                        254, 295, 340, 389, 444, 498};
+int answer_int[13] = {0, 3, 11, 18, 23, 28, 36, 45, 50, 55, 63, 70, 76};
 
 void new_game_field(bool arr[], int size) {
   for (int i = 0; i < size; i++) {
@@ -82,12 +82,14 @@ std::string lower_case(std::string str) {
 int main() {
   std::cout << "Play in \"What? Where? When?\" \n";
   bool question_options[13];
-  int score_player= 0, score_spectators = 0;
-  bool win = false;
+
   int size_questions = std::size(question_options);
   new_game_field(question_options, size_questions);
 
-  for (int count = 0; count < 13; count++) {
+  int score_player = 0, score_spectators = 0;
+  bool win = false;
+
+  while (!win) {
     int offset = 0;
     offset = offset_from_player(offset);
 
@@ -106,12 +108,21 @@ int main() {
     std::cout << "Input answer: ";
     std::cin >> answer_player;
 
-    answer_player = lower_case(answer_player); 
-   
-    if(answer_player == answer(offset)) {
-      std::cout << "You right\n";
-    }
+    answer_player = lower_case(answer_player);
 
-    print_field(question_options, size_questions);
+    if (answer_player == answer(offset)) {
+      std::cout << "You guessed it\n";
+      score_player++;
+    } else {
+      std::cout << "You did not guess right\n"
+                << "Correct answer: " << answer(offset) << "\n";
+      score_spectators++;
+    }
+    std::cout << "Score player: " << score_player << "\n";
+    std::cout << "Score spectators: " << score_spectators << "\n";
+    win = score_player == 6 || score_spectators == 6;
   }
+
+  if (score_player == 6) std::cout << "Player WIN\n";
+  if (score_spectators == 6) std::cout << "Spectators WIN\n";
 }
