@@ -15,7 +15,7 @@ void is_png(char str[], char control[], int sizeControl) {
 }
 
 int main() {
-  std::cout << "Open you text file\n";
+  std::cout << "Open you PNG file\n";
 
   std::ifstream picture;
 
